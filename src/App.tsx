@@ -37,7 +37,7 @@ function App() {
 
         <Route path="/login" element={<Auth />} />
         <Route path="/register" element={<Auth />} />
-        <Route path="/*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

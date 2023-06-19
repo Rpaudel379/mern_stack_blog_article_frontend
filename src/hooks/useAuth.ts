@@ -34,6 +34,7 @@ export default () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   console.log(pathname);
+  console.log(pathname === "/login");
 
   const [user, setUser] = useState<User>(initialState);
   const [isLogin, setIsLogin] = useState(pathname === "/login");

@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import Auth from "@pages/Auth";
 import Dashboard from "@pages/Dashboard";
 import Edit from "@pages/Dashboard/Edit";
 import Home from "@pages/Home";
@@ -9,6 +8,8 @@ import EditBlog from "@pages/Blog/EditBlog";
 import NotFound from "@pages/NotFound";
 import ProtectedRoutes from "@components/ProtectedRoutes";
 import MyBlogs from "@/src/components/Home/MyBlogs";
+import Login from "@pages/Login";
+import Register from "@pages/Register";
 
 function App() {
   return (
@@ -35,8 +36,8 @@ function App() {
         </Route>
         {/* protected <routes></routes> */}
 
-        <Route path="/login" element={<Auth />} />
-        <Route path="/register" element={<Auth />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

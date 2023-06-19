@@ -1,22 +1,14 @@
 import useAuth from "@/src/hooks/useAuth";
+import { Link } from "react-router-dom";
 
-const Auth = () => {
-  const {
-    handleChange,
-    loading,
-    error,
-    errorHighlight,
-    handleSubmit,
-    isLogin,
-    handleToggleForm,
-  } = useAuth();
+const Login = () => {
+  const { handleChange, loading, error, errorHighlight, handleSubmit } =
+    useAuth();
 
   return (
     <div className="flex justify-center">
       <div className="relative w-full rounded-2xl border bg-slate-50 p-5 shadow-xl dark:bg-slate-900 dark:text-white md:max-w-md">
-        <p className="text-4xl font-bold">
-          {isLogin ? "Login to you account" : "Create a new account"}
-        </p>
+        <p className="text-4xl font-bold">Login to you account</p>
 
         {loading && (
           <div className="absolute left-0 top-0 z-30 flex h-full w-full items-center justify-center bg-slate-100/80 ">
@@ -73,27 +65,14 @@ const Auth = () => {
               type="submit"
               className="rounded-xl bg-slate-700 px-5 py-3 text-white hover:bg-slate-600 dark:bg-slate-800 dark:hover:bg-slate-700"
             >
-              {isLogin ? "Sign In" : "Register"}
+              Sign In
             </button>
-            {isLogin ? (
-              <button
-                onClick={handleToggleForm}
-                type="button"
-                className="text-sm font-semibold text-slate-500 hover:text-slate-700 dark:text-slate-300 dark:hover:text-slate-400"
-              >
-                Not yet created?
-              </button>
-            ) : (
-              <>
-                <button
-                  onClick={handleToggleForm}
-                  type="button"
-                  className="text-sm font-semibold text-slate-500 hover:text-slate-700 dark:text-slate-300 dark:hover:text-slate-400"
-                >
-                  Already a User?
-                </button>
-              </>
-            )}
+            <Link
+              to={"/register"}
+              className="text-sm font-semibold text-slate-500 hover:text-slate-700 dark:text-slate-300 dark:hover:text-slate-400"
+            >
+              Not yet created?
+            </Link>
           </div>
         </form>
       </div>
@@ -101,7 +80,7 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default Login;
 
 /* 
 

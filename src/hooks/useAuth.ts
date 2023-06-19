@@ -35,7 +35,7 @@ export default () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState<User>(initialState);
-  const [isLogin, setIsLogin] = useState(pathname === "/login");
+  const isLogin = pathname === "/login";
   console.log(isLogin);
 
   const [loading, setLoading] = useState(false);
@@ -95,19 +95,6 @@ export default () => {
     setUser((user) => ({ ...user, [e.target.name]: e.target.value }));
   };
 
-  const handleToggleForm = () => {
-    // Change the URL based on the form being toggled
-    if (isLogin) {
-      navigate("/register");
-    } else {
-      navigate("/login");
-    }
-  };
-
-  useEffect(() => {
-    setIsLogin((prevState) => !prevState);
-  }, [pathname]);
-
   useEffect(() => {
     if (error.length) {
       if (error.includes("username")) {
@@ -124,8 +111,5 @@ export default () => {
     handleSubmit,
     handleChange,
     errorHighlight,
-
-    isLogin,
-    handleToggleForm,
   };
 };

@@ -31,10 +31,9 @@ const initialErrorHighlightState: ErrorHighlight = {
 export default () => {
   const dispatch = useAppDispatch();
 
-
   const { pathname } = useLocation();
   const navigate = useNavigate();
-
+  console.log(pathname);
 
   const [user, setUser] = useState<User>(initialState);
   const [isLogin, setIsLogin] = useState(pathname === "/login");
@@ -43,7 +42,6 @@ export default () => {
   const [errorHighlight, setErrorHighlight] = useState<ErrorHighlight>(
     initialErrorHighlightState
   );
-  
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

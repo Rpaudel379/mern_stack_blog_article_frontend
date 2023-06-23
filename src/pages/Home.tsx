@@ -1,7 +1,8 @@
-// import { useState } from "react";
+import { Suspense, lazy } from "react";
+
 // import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import AllBlogs from "@components/Home/AllBlogs";
+const AllBlogs = lazy(() => import("@components/Home/AllBlogs"));
 
 import { useAppSelector } from "@hooks/states";
 
@@ -10,7 +11,6 @@ const Home = () => {
 
   // const [search, setSearch] = useState("");
   const { pathname } = useLocation();
-
 
   return (
     <div className="flex grow flex-col">

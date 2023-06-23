@@ -1,8 +1,6 @@
-import { Suspense, lazy } from "react";
-
 // import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { Link, Outlet, useLocation } from "react-router-dom";
-const AllBlogs = lazy(() => import("@components/Home/AllBlogs"));
+import AllBlogs from "@components/Home/AllBlogs";
 
 import { useAppSelector } from "@hooks/states";
 

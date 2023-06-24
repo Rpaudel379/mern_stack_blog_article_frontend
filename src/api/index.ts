@@ -1,8 +1,14 @@
 import axios from "axios";
+import { store } from "@states/store";
+
+const token = store.getState().authReducer.token;
 
 const API = axios.create({
   baseURL: import.meta.env.VITE_backend,
   withCredentials: true,
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
 });
 
 export const login = (formData: FormData) =>

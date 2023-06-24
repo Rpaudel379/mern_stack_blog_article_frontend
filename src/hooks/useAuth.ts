@@ -86,6 +86,8 @@ export default () => {
         setError("Something went wrong! Please try again");
       }
     } catch (error: any) {
+      console.log(error);
+      
       setError(error.response.data.message);
     }
     setLoading(false);

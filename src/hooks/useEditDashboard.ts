@@ -80,11 +80,12 @@ export default () => {
 
       if (error.includes("username")) {
         setErrorHighlight({ ...errorHighlight, username: true });
-      } else {
+      }
+      if (error.includes("password")) {
         setErrorHighlight({ ...errorHighlight, password: true });
       }
     }
-  }, [error, errorHighlight]);
+  }, [error]);
 
   const handleDelete = async () => {
     if (userId) {

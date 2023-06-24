@@ -6,6 +6,9 @@ const token = store.getState().authReducer.token;
 const API = axios.create({
   baseURL: import.meta.env.VITE_backend,
   withCredentials: true,
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
 });
 
 export const login = (formData: FormData) =>
@@ -27,15 +30,7 @@ export const getAllBlogs = (pageNo: number) =>
   API.get("/api/blog", { params: { pageNo } });
 
 export const getUserBlogs = (id: string, pageNo: number) =>
-  API.post(
-    `/api/blog/${id}`,
-    { pageNo },
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  API.post(`/api/blog/${id}`, { pageNo });
 
 export const getSingleBlog = (id: string) => API.get(`/api/blog/${id}`);
 

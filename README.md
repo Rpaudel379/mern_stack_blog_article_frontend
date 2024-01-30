@@ -1,4 +1,4 @@
-# MERN Stack Blog article Frontend
+# MERN Stack Blog article Frontend 
 This is the frontend UI code for the https://mern-blog-app.netlify.app/. 
 
 
